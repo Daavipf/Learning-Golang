@@ -1,3 +1,3 @@
-module example.com/hello
+module github.com/Daavipf/Learning-Golang
 
 go 1.24.2
