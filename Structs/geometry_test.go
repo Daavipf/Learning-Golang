@@ -1,6 +1,8 @@
 package structs
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestPerimeter(t *testing.T) {
 	t.Run("test calculate rectangle perimeter", func(t *testing.T) {
