@@ -1,5 +1,7 @@
 package pointers
 
+import "errors"
+
 type Wallet struct {
 	balance Bitcoin
 }
@@ -14,7 +16,13 @@ func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
 // Withdraws some amount to the wallet's balance
-func (w *Wallet) Withdraw(amount Bitcoin) {
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return ErrInsufficientFunds
+	}
 	w.balance -= amount
+	return nil
 }
